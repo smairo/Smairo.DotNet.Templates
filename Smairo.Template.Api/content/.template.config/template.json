@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Miro Holopainen",
+  "classifications": [ "Api", "Core", "Swagger", "Identityserver4 authentication", "Codefirst", "Dapper" ],
+  "preferNameDirectory": true,
+  "identity": "Smairo.Template",
+  "name": "Api with swagger and repository",
+  "shortName": "api-swagger",
+  "sourceName": "Smairo.Template",
+  "primaryOutputs": [
+    {
+      "path": "Smairo.Template.sln"
+    }
+  ],
+  "tags": {
+    "language": "C#",
+    "type": "solution"
+  }
+}
