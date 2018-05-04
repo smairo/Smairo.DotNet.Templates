@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Miro Holopainen",
+  "classifications": [ "Dependency Injection", "Console" ],
+  "preferNameDirectory": true,
+  "identity": "Smairo.Template.ConsoleApp",
+  "name": "DI Console App",
+  "shortName": "smairo-console",
+  "sourceName": "Smairo.Template.ConsoleApp",
+  "primaryOutputs": [
+    {
+      "path": "Smairo.Template.ConsoleApp/Smairo.Template.ConsoleApp.sln"
+    }
+  ],
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "symbols": {
+    "ApplicationName": {
+      "type": "parameter",
+      "defaultValue": "App",
+      "replaces": "ApplicationName",
+	  "fileRename": "ApplicationName"
+    }
+  }
+}
