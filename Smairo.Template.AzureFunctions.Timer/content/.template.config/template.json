@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Miro Holopainen",
+  "classifications": [ "Dependency Injection", "Azure", "Azure Functions" ],
+  "preferNameDirectory": true,
+  "identity": "Smairo.Template.AzureFunctions.Timer",
+  "name": "DI Console App",
+  "shortName": "smairo-function-timer",
+  "sourceName": "Smairo.Template.AzureFunctions.Timer",
+  "primaryOutputs": [
+    {
+      "path": "Smairo.Template.AzureFunctions.Timer/Smairo.Template.AzureFunctions.Timer.sln"
+    }
+  ],
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "symbols": {
+    "FunctionName": {
+      "type": "parameter",
+      "defaultValue": "TimerFunction",
+      "replaces": "Function1",
+	  "fileRename": "Function1"
+    }
+  }
+}
