@@ -3,7 +3,7 @@
     <metadata>
         <id>Smairo.Template.AzureFunction.Timer</id>
 		<title>Smairo Azure Function timer template</title>
-        <version>2.0.0</version>
+        <version>2.2.0</version>
         <description>Azure function timer with dependency injection</description>
         <authors>Miro Holopainen</authors>
 		<owners>Miro Holopainen</owners>

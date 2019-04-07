@@ -2,18 +2,20 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
+using Smairo.DependencyContainer;
+
 namespace Smairo.Template.AzureFunctions.Timer.Modules
 {
     /// <inheritdoc />
     /// <summary>
     /// This represents the module entity for dependencies.
     /// </summary>
-    public class Function1Module : Module
+    public class Function1Module : IModule
     {
         public static IConfiguration Configuration { get; set; }
 
         /// <inheritdoc />
-        public override void FunctionStartup(IServiceCollection services)
+        public void Load(IServiceCollection services)
         {
             Configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())

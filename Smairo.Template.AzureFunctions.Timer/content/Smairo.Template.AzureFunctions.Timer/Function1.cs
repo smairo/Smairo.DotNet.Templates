@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.DependencyInjection;
-using Smairo.Template.AzureFunctions.Timer.Containers;
+using Smairo.DependencyContainer;
 using Smairo.Template.AzureFunctions.Timer.Modules;
 
 namespace Smairo.Template.AzureFunctions.Timer

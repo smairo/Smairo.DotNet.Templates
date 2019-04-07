@@ -1,39 +1,24 @@
 ﻿#region Using...
-using System.IO;
+
+using System;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Serilog;
+using Smairo.DependencyContainer;
+
 #endregion
 namespace Smairo.Template.ConsoleApp
 {
     public class Program
     {
-        public static IConfiguration Configuration { get; set; }
+        // Create container using Startup class as a module, then build it to static variable
+        public static IServiceProvider Provider = new ContainerBuilder()
+            .RegisterModule(new Startup())
+            .Build();
 
         static async Task Main(string[] args)
         {
-            // Build configuration
-            Configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                .Build();
-
-            // Create application logger
-            var logger = new LoggerConfiguration()
-                .WriteTo.Console()
-                .WriteTo.Logentries(Configuration["LogentriesTokens:ApplicationName"])
-                .CreateLogger();
-
-            // Create service container
-            var services = new ServiceCollection()
-                .AddSingleton<IApplicationName, ApplicationName>()
-                .AddOptions()
-                .AddLogging(log => log.AddSerilog(logger, true))
-                .BuildServiceProvider();
-
             // Get application and run
-            var application = services.GetService<IApplicationName>();
+            var application = Provider.GetService<IApplicationName>();
             await application.Run();
         }
     }

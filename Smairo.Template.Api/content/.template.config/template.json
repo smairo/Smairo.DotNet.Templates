@@ -5,7 +5,7 @@
   "preferNameDirectory": true,
   "identity": "Smairo.Template",
   "name": "Api with swagger and repository",
-  "shortName": "api-swagger",
+  "shortName": "smairo-api-swagger",
   "sourceName": "Smairo.Template",
   "primaryOutputs": [
     {

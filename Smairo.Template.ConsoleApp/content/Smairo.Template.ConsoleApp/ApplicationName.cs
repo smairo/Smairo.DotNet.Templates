@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 namespace Smairo.Template.ConsoleApp
 {
@@ -13,6 +14,9 @@ namespace Smairo.Template.ConsoleApp
         public async Task Run()
         {
             _logger.LogInformation("Hello world!");
+
+            Console.WriteLine("Console closing. Press anything to quit");
+            Console.ReadKey();
         }
     }
 

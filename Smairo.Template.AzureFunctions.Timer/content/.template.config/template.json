@@ -4,7 +4,7 @@
   "classifications": [ "Dependency Injection", "Azure", "Azure Functions" ],
   "preferNameDirectory": true,
   "identity": "Smairo.Template.AzureFunctions.Timer",
-  "name": "DI Console App",
+  "name": "Azure functions V2 timer function (DI)",
   "shortName": "smairo-function-timer",
   "sourceName": "Smairo.Template.AzureFunctions.Timer",
   "primaryOutputs": [

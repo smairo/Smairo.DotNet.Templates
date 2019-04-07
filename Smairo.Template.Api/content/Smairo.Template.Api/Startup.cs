@@ -7,8 +7,10 @@ using System.Reflection;
 using IdentityServer4.AccessTokenValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.PlatformAbstractions;
 using Serilog;
 using Smairo.Template.Api.Services;
@@ -24,14 +26,14 @@ namespace Smairo.Template.Api
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            Log.Logger = new LoggerConfiguration()
-                .ReadFrom.Configuration(Configuration)
-                .CreateLogger();
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services
+                .AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
             SetupDependencyInjection(services);
             SetupAuthentication(services);
             SetupSwagger(services);
@@ -83,9 +85,8 @@ namespace Smairo.Template.Api
             services.EnforceAuthentication();
             services
                 .AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
-                .AddJwtBearer(o => {
+                .AddIdentityServerAuthentication(o => {
                     o.Authority = Configuration["Authentication:UseAuthentication"];
-                    o.Audience = Configuration["Authentication:Audience"];
                     o.RequireHttpsMetadata = Configuration.GetValue<bool>("Authentication:RequireHttpsMetadata");
                 });
             services.AddAuthorization();
@@ -100,11 +101,18 @@ namespace Smairo.Template.Api
             services.AddRepositories();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILogger<Startup> log)
         {
             if (env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseExceptionHandler("/Error");
+                app.UseHsts();
+            }
+
+            app.UseHttpsRedirection();
 
             if (Configuration.GetValue<bool>("UseSwagger")) {
                 app.UseSwagger();
@@ -119,7 +127,7 @@ namespace Smairo.Template.Api
             }
 
             app.UseMvc();
-            Log.Information("Smairo.Template.Api is now configured and will start to serve requests. " +
+            log.LogInformation("Smairo.Template.Api is now configured and will start to serve requests. " +
                             $"Current environment: {env.EnvironmentName}. " +
                             $"Version: {Assembly.GetExecutingAssembly().GetName().Version}");
         }

@@ -10,42 +10,44 @@ namespace Smairo.Template.Api
     {
         public static void Main(string[] args)
         {
-            BuildWebHost(args).Run();
+            CreateWebHostBuilder(args)
+                .Build()
+                .Run();
         }
 
-        public static IWebHost BuildWebHost(string[] args)
-        {
-            return WebHost
-                    .CreateDefaultBuilder(args)
-                    .UseStartup<Startup>()
-                    .UseKestrel(kestrelOptions => {
-                        kestrelOptions.Limits.KeepAliveTimeout = TimeSpan.FromMinutes(2);
-                        kestrelOptions.Limits.MaxConcurrentConnections = 1000;
-                        kestrelOptions.Limits.MaxConcurrentUpgradedConnections = 1000;
-                    })
-                    .ConfigureAppConfiguration(SetupAppConfiguration)
-                    .UseSerilog()
-                    .UseApplicationInsights()
-                    .Build();
-        }
+        internal static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost
+                .CreateDefaultBuilder(args)
+                .UseStartup<Startup>()
+                .UseKestrel(kestrelOptions =>
+                {
+                    kestrelOptions.Limits.KeepAliveTimeout = TimeSpan.FromMinutes(2);
+                    kestrelOptions.Limits.MaxConcurrentConnections = 1000;
+                    kestrelOptions.Limits.MaxConcurrentUpgradedConnections = 1000;
+                })
+                .ConfigureAppConfiguration(SetupAppConfiguration)
+                .UseIISIntegration()
+                .UseSerilog(SetupSerilog)
+                .UseApplicationInsights();
 
+        internal static void SetupSerilog(WebHostBuilderContext hostingContext, LoggerConfiguration loggerConfiguration)
+            => loggerConfiguration.ReadFrom.Configuration(hostingContext.Configuration);
 
-        private static void SetupAppConfiguration(WebHostBuilderContext webHostBuilderContext, IConfigurationBuilder configurationBuilder)
+        internal static void SetupAppConfiguration(WebHostBuilderContext webHostBuilderContext, IConfigurationBuilder configurationBuilder)
         {
             IHostingEnvironment env = webHostBuilderContext.HostingEnvironment;
             configurationBuilder
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true)
+                .AddUserSecrets<Startup>()
                 .AddEnvironmentVariables();
 
-            // Add user secrets in development environment
-            if (env.IsDevelopment()) {
-                configurationBuilder.AddUserSecrets<Startup>();
-            }
+            
+            var configuration = configurationBuilder
+                .Build();
 
-            // Add Azure keyvault if we can
-            var configuration = configurationBuilder.Build();
+            // Add Azure key vault if we can
             if (!string.IsNullOrEmpty(configuration["KeyVault:VaultName"]) && !string.IsNullOrEmpty(configuration["KeyVault:ClientId"]) && !string.IsNullOrEmpty(configuration["KeyVault:ClientSecret"])) {
                 configurationBuilder.AddAzureKeyVault(
                     $"https://{configuration["KeyVault:VaultName"]}.vault.azure.net/",
@@ -53,7 +55,9 @@ namespace Smairo.Template.Api
                     configuration["KeyVault:ClientSecret"]
                 );
             }
-            configurationBuilder.Build();
+
+            configurationBuilder
+                .Build();
         }
     }
 }
