@@ -1,1 +1,0 @@
-﻿For CI. Azure devops publish task requires wwwroot and if there is no files, wwwroot won't reach git as it would be empty

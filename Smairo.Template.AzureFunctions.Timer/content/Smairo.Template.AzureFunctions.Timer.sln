@@ -1,11 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27428.2043
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29409.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smairo.Template.AzureFunctions.Timer", "Smairo.Template.AzureFunctions.Timer\Smairo.Template.AzureFunctions.Timer.csproj", "{D4AEDB99-BC70-4C42-94AD-79106EE14B57}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7D9F0CE9-7142-4676-B7C9-892C687D518A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smairo.Template.AzureFunctions.Timer.Tests", "Smairo.Template.AzureFunctions.Timer.Tests\Smairo.Template.AzureFunctions.Timer.Tests.csproj", "{0571DA6E-763E-47D0-B18F-EFECE741B612}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{45ED5751-4982-4218-9DF8-71938EDAD547}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Smairo.Template.AzureFunctions.Timer", "src\Smairo.Template.AzureFunctions.Timer\Smairo.Template.AzureFunctions.Timer.csproj", "{88F0D894-74EA-4627-9427-4F37CB7F593B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Smairo.Template.AzureFunctions.Timer.Tests", "test\Smairo.Template.AzureFunctions.Timer.Tests\Smairo.Template.AzureFunctions.Timer.Tests.csproj", "{F79322CE-586D-4306-BBDC-2DEC7F3697B1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "debugger", "debugger", "{D3A7AFBC-749A-47BD-89D8-8A5045CCFAD9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Smairo.Template.AzureFunctions.Timer.Debugger", "debugger\Smairo.Template.AzureFunctions.Timer.Debugger\Smairo.Template.AzureFunctions.Timer.Debugger.csproj", "{80D2E0AF-3A65-46F5-9E52-C7E1FE929373}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,17 +21,26 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D4AEDB99-BC70-4C42-94AD-79106EE14B57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D4AEDB99-BC70-4C42-94AD-79106EE14B57}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D4AEDB99-BC70-4C42-94AD-79106EE14B57}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D4AEDB99-BC70-4C42-94AD-79106EE14B57}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0571DA6E-763E-47D0-B18F-EFECE741B612}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0571DA6E-763E-47D0-B18F-EFECE741B612}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0571DA6E-763E-47D0-B18F-EFECE741B612}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0571DA6E-763E-47D0-B18F-EFECE741B612}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88F0D894-74EA-4627-9427-4F37CB7F593B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88F0D894-74EA-4627-9427-4F37CB7F593B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88F0D894-74EA-4627-9427-4F37CB7F593B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88F0D894-74EA-4627-9427-4F37CB7F593B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F79322CE-586D-4306-BBDC-2DEC7F3697B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F79322CE-586D-4306-BBDC-2DEC7F3697B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F79322CE-586D-4306-BBDC-2DEC7F3697B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F79322CE-586D-4306-BBDC-2DEC7F3697B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80D2E0AF-3A65-46F5-9E52-C7E1FE929373}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80D2E0AF-3A65-46F5-9E52-C7E1FE929373}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80D2E0AF-3A65-46F5-9E52-C7E1FE929373}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80D2E0AF-3A65-46F5-9E52-C7E1FE929373}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{88F0D894-74EA-4627-9427-4F37CB7F593B} = {7D9F0CE9-7142-4676-B7C9-892C687D518A}
+		{F79322CE-586D-4306-BBDC-2DEC7F3697B1} = {45ED5751-4982-4218-9DF8-71938EDAD547}
+		{80D2E0AF-3A65-46F5-9E52-C7E1FE929373} = {D3A7AFBC-749A-47BD-89D8-8A5045CCFAD9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {424F0B32-F2C9-432A-A590-6D867520A886}
