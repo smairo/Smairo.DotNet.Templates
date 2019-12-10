@@ -12,6 +12,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Smairo.Template.Api.Filters;
+using Smairo.Template.Model.Extensions;
+
 namespace Smairo.Template.Api
 {
     public class Startup
@@ -28,10 +30,11 @@ namespace Smairo.Template.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
-
             // In case you need to access http requests (eg find username etc)
             services.AddHttpContextAccessor();
+            services.AddModelDependencies(Configuration, Environment.IsProduction());
+
+            services.AddLogging();
 
             AddSwagger(services);
             AddGlobalMvcFilters(services);
@@ -59,21 +62,22 @@ namespace Smairo.Template.Api
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app)
         {
+            app.UseRouting();
             if (Environment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStaticFiles();
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
                 c.RoutePrefix = string.Empty;
+                c.InjectStylesheet("css/swagger-themes/dark.min.css");
             });
 
             app.UseHttpsRedirection();
-            app.UseRouting();
-
             if (Configuration.GetValue<bool>("Authentication:UseAuthentication"))
             {
                 app.UseAuthorization();
@@ -158,7 +162,8 @@ namespace Smairo.Template.Api
             var producesJson = new ProducesAttribute("application/json");
             var consumesJson = new ConsumesAttribute("application/json");
 
-            services.AddMvc(options => {
+            services
+                .AddControllers(options => {
                 if (Configuration.GetValue<bool>("Authentication:UseAuthentication"))
                 {
                     options.Filters.Add(new AuthorizeFilter(authorizationPolicy));

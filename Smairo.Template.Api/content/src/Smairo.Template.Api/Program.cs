@@ -1,5 +1,7 @@
 using System;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using Serilog;
 using Smairo.AspNetHosting;
 namespace Smairo.Template.Api
 {
@@ -27,6 +29,8 @@ namespace Smairo.Template.Api
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             new HostBuilder()
-                .CreateExtendedBuilderWithSerilog<Startup>(args);
+                .CreateExtendedBuilderWithSerilog<Startup>(args)
+                .ConfigureWebHostDefaults(configure => { configure.UseStartup<Startup>(); })
+                .UseSerilog();
     }
 }

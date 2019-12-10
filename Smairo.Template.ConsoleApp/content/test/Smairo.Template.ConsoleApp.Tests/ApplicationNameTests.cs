@@ -6,7 +6,7 @@ namespace Smairo.Template.ConsoleApp.Tests
         [Fact]
         public void Test_Something()
         {
-
+            Assert.True(true);
         }
     }
 }

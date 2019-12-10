@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Smairo.Template.Model.Entities;
 namespace Smairo.Template.Model
 {
-    // Add-Migration Initial -Context ApiContext -o Migrations/ApiContext
+    // Add-Migration Initial -Context ApiContext -o Migrations
     // Add-Migration Initial -o Migrations
-    // Scaffold-DbContext 'Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Chinook' Microsoft.EntityFrameworkCore.SqlServer -ContextDir "" -OutputDir Entities/Chinook
+    // Scaffold-DbContext 'Server=(localdb)\\mssqllocaldb;Database=MyDb' Microsoft.EntityFrameworkCore.SqlServer -ContextDir "" -OutputDir Entities
     public class ApiContext : DbContext
     {
         public static string UsedSchema => "dbo";
@@ -24,7 +24,7 @@ namespace Smairo.Template.Model
 
             optionsBuilder
                 .UseSqlServer(
-                    "Server=(localdb)\\mssqllocaldb;Database=ReportingServices;Trusted_Connection=True;MultipleActiveResultSets=true",
+                    "Server=(localdb)\\mssqllocaldb;Database=MyDb",
                     sqlOptions => sqlOptions.MigrationsHistoryTable(HistoryRepository.DefaultTableName, UsedSchema)
                 );         
             base.OnConfiguring(optionsBuilder);

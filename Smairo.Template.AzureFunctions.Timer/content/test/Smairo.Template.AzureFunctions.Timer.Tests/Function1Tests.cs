@@ -8,7 +8,7 @@ namespace Smairo.Template.AzureFunctions.Timer.Tests
         [Fact]
         public void Test()
         {
-
+            Assert.True(true);
         }
     }
 }

@@ -1,11 +1,9 @@
 ﻿using System;
-using System.IO;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using Smairo.DependencyContainer;
 using Smairo.Template.ConsoleApp.Model.Extensions;
-
 namespace Smairo.Template.ConsoleApp
 {
     public class Startup : IModule
@@ -27,6 +25,7 @@ namespace Smairo.Template.ConsoleApp
             var logger = new LoggerConfiguration()
                 .ReadFrom.Configuration(Configuration)
                 .CreateLogger();
+
             services.AddLogging(log => log.AddSerilog(logger, true));
 
             // Options
@@ -41,8 +40,7 @@ namespace Smairo.Template.ConsoleApp
             services.AddSingleton<IApplicationName, ApplicationName>();
             services.AddModelDependencies(Configuration);
 
-            services
-                .BuildServiceProvider();
+            services.BuildServiceProvider();
         }
 
         public static string GetEnvironmentAsString() =>

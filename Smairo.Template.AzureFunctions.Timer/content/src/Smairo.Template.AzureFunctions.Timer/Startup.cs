@@ -29,6 +29,7 @@ namespace Smairo.Template.AzureFunctions.Timer
             var logger = new LoggerConfiguration()
                 .ReadFrom.Configuration(Configuration)
                 .CreateLogger();
+
             services.AddLogging(log => log.AddSerilog(logger, true));
 
             // Options
@@ -42,8 +43,7 @@ namespace Smairo.Template.AzureFunctions.Timer
             // Our services
             services.AddSingleton<IFunction1Service, Function1Service>();
 
-            services
-                .BuildServiceProvider();
+            services.BuildServiceProvider();
         }
 
         public static string GetEnvironmentAsString() =>

@@ -3,7 +3,7 @@
     <metadata>
         <id>Smairo.Template.Console</id>
 		<title>Smairo ConsoleApp template</title>
-        <version>3.0.0</version>
+        <version>3.1.0</version>
         <description>Consoleapp with dependency injection</description>
         <authors>Miro Holopainen</authors>
 		<owners>Miro Holopainen</owners>
