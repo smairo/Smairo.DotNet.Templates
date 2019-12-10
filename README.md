@@ -2,7 +2,7 @@
 These are my commonly used templates so i can kick off a new project fast and focus on coding straight away.
 
 # Smairo.Template.Api
-My opinionated way that the .net core Web API with Swagger, IdentitySerer4 and EfCore CodeFirst + Dapper should be done. If you wish to get documented api, that has authentication (IdentitySerer4 here) and do something with the database, then this template can cut amount of setup for you.
+My opinionated way that the .net core Web API with Swagger, IdentityServer4 and EfCore CodeFirst + Dapper should be done. If you wish to get documented api, that has authentication (IdentityServer4 here) and do something with the database, then this template can cut amount of setup for you.
 
 You can install api template from nuget:
 ```
