@@ -1,11 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27428.2043
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29409.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smairo.Template.ConsoleApp", "Smairo.Template.ConsoleApp\Smairo.Template.ConsoleApp.csproj", "{F7B3A795-036B-46FF-BFCA-7136E597A01F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{240B67B1-652A-445C-96B6-6BAF5C56E170}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smairo.Template.ConsoleApp.Tests", "Smairo.Template.ConsoleApp.Tests\Smairo.Template.ConsoleApp.Tests.csproj", "{EE19D3C5-A087-49F9-A8A7-CF2B2988D7BC}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{EDABF78A-A7B1-4DE0-9A15-8178DA0F8D1C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Smairo.Template.ConsoleApp", "src\Smairo.Template.ConsoleApp\Smairo.Template.ConsoleApp.csproj", "{CA8502F4-C124-4411-8B08-FEB2CCD92BD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smairo.Template.ConsoleApp.Model", "src\Smairo.Template.ConsoleApp.Model\Smairo.Template.ConsoleApp.Model.csproj", "{EE3A2B20-312B-4D02-A48F-0FD111A7BFDE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Smairo.Template.ConsoleApp.Tests", "test\Smairo.Template.ConsoleApp.Tests\Smairo.Template.ConsoleApp.Tests.csproj", "{CA7FCEBB-3293-485F-9F76-2E4D7E5C81DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,17 +19,26 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F7B3A795-036B-46FF-BFCA-7136E597A01F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F7B3A795-036B-46FF-BFCA-7136E597A01F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F7B3A795-036B-46FF-BFCA-7136E597A01F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F7B3A795-036B-46FF-BFCA-7136E597A01F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EE19D3C5-A087-49F9-A8A7-CF2B2988D7BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EE19D3C5-A087-49F9-A8A7-CF2B2988D7BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EE19D3C5-A087-49F9-A8A7-CF2B2988D7BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EE19D3C5-A087-49F9-A8A7-CF2B2988D7BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA8502F4-C124-4411-8B08-FEB2CCD92BD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA8502F4-C124-4411-8B08-FEB2CCD92BD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA8502F4-C124-4411-8B08-FEB2CCD92BD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA8502F4-C124-4411-8B08-FEB2CCD92BD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE3A2B20-312B-4D02-A48F-0FD111A7BFDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE3A2B20-312B-4D02-A48F-0FD111A7BFDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE3A2B20-312B-4D02-A48F-0FD111A7BFDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE3A2B20-312B-4D02-A48F-0FD111A7BFDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA7FCEBB-3293-485F-9F76-2E4D7E5C81DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA7FCEBB-3293-485F-9F76-2E4D7E5C81DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA7FCEBB-3293-485F-9F76-2E4D7E5C81DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA7FCEBB-3293-485F-9F76-2E4D7E5C81DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CA8502F4-C124-4411-8B08-FEB2CCD92BD1} = {240B67B1-652A-445C-96B6-6BAF5C56E170}
+		{EE3A2B20-312B-4D02-A48F-0FD111A7BFDE} = {240B67B1-652A-445C-96B6-6BAF5C56E170}
+		{CA7FCEBB-3293-485F-9F76-2E4D7E5C81DF} = {EDABF78A-A7B1-4DE0-9A15-8178DA0F8D1C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {89995445-F806-430F-97AB-A70470D7D0DE}

@@ -1,0 +1,89 @@
+﻿/* https://github.com/smairo/Smairo.Swagger.Themes/blob/master/Dark/dark.scss */
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Open Sans", "sans-serif"; }
+
+body {
+  background-color: #333333; }
+
+.swagger-ui img {
+  visibility: hidden;
+  width: 203px;
+  height: 65px; }
+
+.swagger-ui {
+  color: white; }
+  .swagger-ui .opblock .opblock-summary-operation-id {
+    color: white; }
+  .swagger-ui .opblock .opblock-summary-path {
+    color: white; }
+  .swagger-ui .opblock .opblock-summary-path__deprecated {
+    color: white; }
+  .swagger-ui .opblock .opblock-summary-description {
+    color: white; }
+  .swagger-ui .opblock .opblock-section-header {
+    background: #1c1c1c; }
+    .swagger-ui .opblock .opblock-section-header h4 {
+      color: white; }
+  .swagger-ui .response-col_status {
+    color: white; }
+  .swagger-ui .response-col_links {
+    color: white; }
+  .swagger-ui .model {
+    color: white; }
+  .swagger-ui .model-title {
+    color: white; }
+  .swagger-ui .prop-format {
+    color: white; }
+  .swagger-ui .topbar {
+    background-color: #1c1c1c; }
+    .swagger-ui .topbar .download-url-wrapper .select-label select {
+      border: 2px solid indigo;
+      background-color: indigo;
+      color: white; }
+  .swagger-ui .btn {
+    background: indigo;
+    border: 2px solid indigo;
+    color: white; }
+    .swagger-ui .btn.authorize {
+      color: white;
+      background-color: indigo;
+      background-color: indigo;
+      border-color: indigo; }
+      .swagger-ui .btn.authorize svg {
+        fill: white; }
+  .swagger-ui .opblock-tag {
+    color: white; }
+    .swagger-ui .opblock-tag:hover {
+      background: rgba(0, 0, 0, 0.2); }
+  .swagger-ui .scheme-container {
+    border-bottom: solid 2px #1c1c1c;
+    border-top: solid 2px #1c1c1c;
+    background-color: inherit; }
+  .swagger-ui .info li {
+    color: white; }
+  .swagger-ui .info p {
+    color: white; }
+  .swagger-ui .info table {
+    color: white; }
+  .swagger-ui .info .title {
+    color: white; }
+  .swagger-ui .opblock-description-wrapper p {
+    color: white; }
+  .swagger-ui .opblock-external-docs-wrapper p {
+    color: white; }
+  .swagger-ui .opblock-title_normal p {
+    color: white; }
+  .swagger-ui table thead tr td {
+    color: white; }
+  .swagger-ui table thead tr th {
+    color: white; }
+  .swagger-ui .tab li {
+    color: white; }
+  .swagger-ui section.models h4 {
+    color: white; }
+  .swagger-ui .response-control-media-type--accept-controller select {
+    border-color: indigo; }

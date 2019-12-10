@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Smairo.Template.AzureFunctions.Timer.Debugger": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "CORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

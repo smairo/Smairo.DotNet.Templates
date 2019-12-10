@@ -4,7 +4,7 @@
   "classifications": [ "Api", "Core", "Swagger", "Identityserver4 authentication", "Codefirst", "Dapper" ],
   "preferNameDirectory": true,
   "identity": "Smairo.Template",
-  "name": "Api with swagger and repository",
+  "name": "Api with swagger (dark theme) and repository",
   "shortName": "smairo-api-swagger",
   "sourceName": "Smairo.Template",
   "primaryOutputs": [

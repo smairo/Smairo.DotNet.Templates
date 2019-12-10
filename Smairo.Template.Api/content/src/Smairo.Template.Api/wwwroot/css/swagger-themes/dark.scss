@@ -1,0 +1,175 @@
+/* https://github.com/smairo/Smairo.Swagger.Themes/blob/master/Dark/dark.scss */
+
+$dark_grey_light: rgba(51, 51, 51, 1);
+$white: rgba(255, 255, 255, 1);
+$indigo: rgba(75, 0, 130, 1);
+$black_alpha20: rgba(0, 0, 0, .2);
+$dark_grey: rgba(28, 28, 28, 1);
+
+$font_face: 'Open Sans';
+$font_style: 'sans-serif';
+
+$your_logo: url('https://...');
+
+// Open sans Import
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: $font_face, $font_style;
+}
+
+body {
+    background-color: $dark_grey_light;
+}
+
+// Replace smartbear img here
+.swagger-ui img {
+    //content: $your_logo;
+    visibility: hidden;
+    width: 203px;
+    height: 65px;
+}
+
+.swagger-ui {
+    color: $white;
+
+    .opblock {
+        .opblock-summary-operation-id {
+            color: $white;
+        }
+
+        .opblock-summary-path {
+            color: $white;
+        }
+
+        .opblock-summary-path__deprecated {
+            color: $white;
+        }
+
+        .opblock-summary-description {
+            color: $white;
+        }
+
+        .opblock-section-header {
+            background: $dark_grey;
+
+            h4 {
+                color: $white;
+            }
+        }
+    }
+
+    .response-col_status {
+        color: $white;
+    }
+
+    .response-col_links {
+        color: $white;
+    }
+
+    .model {
+        color: $white;
+    }
+
+    .model-title {
+        color: $white;
+    }
+
+    .prop-format {
+        color: $white;
+    }
+
+    .topbar {
+        background-color: $dark_grey;
+
+        .download-url-wrapper .select-label select {
+            border: 2px solid $indigo;
+            background-color: $indigo;
+            color: $white;
+        }
+    }
+
+    .btn {
+        background: $indigo;
+        border: 2px solid $indigo;
+        color: $white;
+
+        &.authorize {
+            color: $white;
+            background-color: $indigo;
+            background-color: $indigo;
+            border-color: $indigo;
+
+            svg {
+                fill: $white;
+            }
+        }
+    }
+
+    .opblock-tag {
+        color: $white;
+
+        &:hover {
+            background: $black_alpha20;
+        }
+    }
+
+    .scheme-container {
+        border-bottom: solid 2px $dark_grey;
+        border-top: solid 2px $dark_grey;
+        background-color: inherit;
+    }
+
+    .info {
+        li {
+            color: $white;
+        }
+
+        p {
+            color: $white;
+        }
+
+        table {
+            color: $white;
+        }
+
+        .title {
+            color: $white;
+        }
+    }
+
+    .opblock-description-wrapper p {
+        color: $white;
+    }
+
+    .opblock-external-docs-wrapper p {
+        color: $white;
+    }
+
+    .opblock-title_normal p {
+        color: $white;
+    }
+
+    table thead tr {
+        td {
+            color: $white;
+        }
+
+        th {
+            color: $white;
+        }
+    }
+
+    .tab li {
+        color: $white;
+    }
+
+    section.models h4 {
+        color: $white;
+    }
+
+    .response-control-media-type--accept-controller select {
+        border-color: $indigo;
+    }
+}

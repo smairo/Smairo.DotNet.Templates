@@ -19,7 +19,7 @@
   "symbols": {
     "ApplicationName": {
       "type": "parameter",
-      "defaultValue": "App",
+      "defaultValue": "Application",
       "replaces": "ApplicationName",
 	  "fileRename": "ApplicationName"
     }
