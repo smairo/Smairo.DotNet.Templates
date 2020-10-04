@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Smairo.Template.AzureFunctions.Durable.Debugger": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

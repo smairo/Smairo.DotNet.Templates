@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29409.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7D9F0CE9-7142-4676-B7C9-892C687D518A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{45ED5751-4982-4218-9DF8-71938EDAD547}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "debugger", "debugger", "{D3A7AFBC-749A-47BD-89D8-8A5045CCFAD9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Smairo.Template.AzureFunctions.Http", "src\Smairo.Template.AzureFunctions.Http\Smairo.Template.AzureFunctions.Http.csproj", "{BD90BA09-2170-470D-9BCF-50A306700BAB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Smairo.Template.AzureFunctions.Http.Tests", "test\Smairo.Template.AzureFunctions.Http.Tests\Smairo.Template.AzureFunctions.Http.Tests.csproj", "{9E4131AA-2794-49D1-A22C-DF2111AE710F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Smairo.Template.AzureFunctions.Http.Debugger", "debugger\Smairo.Template.AzureFunctions.Http.Debugger\Smairo.Template.AzureFunctions.Http.Debugger.csproj", "{7F47DF9C-19A7-4133-AA50-83FB3A564BA1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD90BA09-2170-470D-9BCF-50A306700BAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD90BA09-2170-470D-9BCF-50A306700BAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD90BA09-2170-470D-9BCF-50A306700BAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD90BA09-2170-470D-9BCF-50A306700BAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E4131AA-2794-49D1-A22C-DF2111AE710F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E4131AA-2794-49D1-A22C-DF2111AE710F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E4131AA-2794-49D1-A22C-DF2111AE710F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E4131AA-2794-49D1-A22C-DF2111AE710F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F47DF9C-19A7-4133-AA50-83FB3A564BA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F47DF9C-19A7-4133-AA50-83FB3A564BA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F47DF9C-19A7-4133-AA50-83FB3A564BA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F47DF9C-19A7-4133-AA50-83FB3A564BA1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BD90BA09-2170-470D-9BCF-50A306700BAB} = {7D9F0CE9-7142-4676-B7C9-892C687D518A}
+		{9E4131AA-2794-49D1-A22C-DF2111AE710F} = {45ED5751-4982-4218-9DF8-71938EDAD547}
+		{7F47DF9C-19A7-4133-AA50-83FB3A564BA1} = {D3A7AFBC-749A-47BD-89D8-8A5045CCFAD9}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {424F0B32-F2C9-432A-A590-6D867520A886}
+	EndGlobalSection
+EndGlobal

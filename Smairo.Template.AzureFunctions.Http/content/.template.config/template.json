@@ -3,13 +3,13 @@
   "author": "Miro Holopainen",
   "classifications": [ "Dependency Injection", "Azure", "Azure Functions" ],
   "preferNameDirectory": true,
-  "identity": "Smairo.Template.AzureFunctions.Timer",
-  "name": "Azure functions timer function (DI)",
-  "shortName": "smairo-function-timer",
-  "sourceName": "Smairo.Template.AzureFunctions.Timer",
+  "identity": "Smairo.Template.AzureFunctions.Http",
+  "name": "Azure functions http function (DI)",
+  "shortName": "smairo-function-http",
+  "sourceName": "Smairo.Template.AzureFunctions.Http",
   "primaryOutputs": [
     {
-      "path": "Smairo.Template.AzureFunctions.Timer/Smairo.Template.AzureFunctions.Timer.sln"
+      "path": "Smairo.Template.AzureFunctions.Http/Smairo.Template.AzureFunctions.Http.sln"
     }
   ],
   "tags": {
@@ -19,9 +19,9 @@
   "symbols": {
     "FunctionName": {
       "type": "parameter",
-      "defaultValue": "TimerFunction",
+      "defaultValue": "HttpFunction",
       "replaces": "Function1",
-	  "fileRename": "Function1"
+	    "fileRename": "Function1"
     }
   }
 }
