@@ -15,7 +15,7 @@ dotnet new api-swagger -n "NameForYourSolution"
 ```
 
 # Smairo.Template.Console
-Dependency injection console with coreapp2.0 ready to go.
+Dependency injection console with coreapp3.1 ready to go.
 
 You can install console template from nuget:
 ```
@@ -28,7 +28,7 @@ dotnet new smairo-console -n "NameForYourSolution" -A "NameForYourApplication"
 ```
 
 # Smairo.Template.AzureFunctions.Timer
-Dependency injection azure function with v2 and timer trigger ready to go.
+Dependency injection azure function with v3 and timer trigger ready to go.
 
 You can install timer function template from nuget:
 ```
@@ -38,4 +38,30 @@ dotnet new -i Smairo.Template.AzureFunction.Timer
 After that you can use it to create a solution:
 ```
 dotnet new smairo-function-timer -n "NameForYourSolution" -F "NameForYourFunction"
+```
+
+# Smairo.Template.AzureFunctions.Http
+Dependency injection azure function with v3 and timer trigger ready to go.
+
+You can install http function template from nuget:
+```
+dotnet new -i Smairo.Template.AzureFunction.Http
+```
+
+After that you can use it to create a solution:
+```
+dotnet new smairo-function-http -n "NameForYourSolution" -F "NameForYourFunction"
+```
+
+# Smairo.Template.AzureFunctions.Durable
+Dependency injection azure Durable function with v3 ready to go.
+
+You can install durable function template from nuget:
+```
+dotnet new -i Smairo.Template.AzureFunction.Durable
+```
+
+After that you can use it to create a solution:
+```
+dotnet new smairo-function-durable -n "NameForYourSolution" -F "NameForYourFunction"
 ```
