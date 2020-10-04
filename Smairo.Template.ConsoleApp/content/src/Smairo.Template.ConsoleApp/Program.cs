@@ -11,9 +11,8 @@ namespace Smairo.Template.ConsoleApp
     public class Program
     {
         // Create container using Startup class as a module, then build it to static variable
-        public static IServiceProvider Provider = new ContainerBuilder()
-            .RegisterModule(new Startup())
-            .Build();
+        public static ContainerBuilder<Startup> Provider
+            = new ContainerBuilder<Startup>();
 
         static async Task Main(string[] args)
         {

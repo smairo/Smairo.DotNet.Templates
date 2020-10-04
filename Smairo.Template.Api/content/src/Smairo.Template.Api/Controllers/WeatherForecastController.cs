@@ -47,5 +47,25 @@ namespace Smairo.Template.Api.Controllers
 
             return Ok(result);
         }
+
+        /// <summary>
+        /// Search weather
+        /// </summary>
+        /// <response code="200">Returns IEnumerable of <see cref="WeatherForecast"/></response>
+        [HttpPost]
+        [ProducesResponseType(typeof(IEnumerable<WeatherForecast>), (int) HttpStatusCode.OK)]
+        public IActionResult Search([FromRoute] WeatherType type)
+        {
+            var rng = new Random();
+            var result = Enumerable.Range(1, 5).Select(index => new WeatherForecast
+                {
+                    Date = DateTime.Now.AddDays(index),
+                    TemperatureC = rng.Next(-20, 55),
+                    Summary = Summaries[rng.Next(Summaries.Length)]
+                })
+                .ToArray();
+
+            throw new InvalidOperationException("Threw exception!");
+        }
     }
 }

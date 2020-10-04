@@ -5,7 +5,6 @@ namespace Smairo.Template.AzureFunctions.Timer.Services
 {
     public class Function1Service : IFunction1Service
     {
-        // Make all injections your "logic" needs
         private readonly ILogger<Function1Service> _logger;
         public Function1Service(ILogger<Function1Service> logger)
         {

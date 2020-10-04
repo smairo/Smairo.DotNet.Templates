@@ -1,7 +1,5 @@
-﻿using System;
-using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
-using Smairo.DependencyContainer;
+﻿using System.Threading.Tasks;
+using Smairo.DependencyContainer.Azure;
 using Smairo.Template.AzureFunctions.Timer.Services;
 
 namespace Smairo.Template.AzureFunctions.Timer.Debugger
@@ -11,9 +9,8 @@ namespace Smairo.Template.AzureFunctions.Timer.Debugger
     /// </summary>
     public class Program
     {
-        public static IServiceProvider Container = new ContainerBuilder()
-            .RegisterModule(new Startup())
-            .Build();
+        public static FunctionDebuggerBuilder<Startup> Container =
+            new FunctionDebuggerBuilder<Startup>();
 
         static async Task Main(string[] args)
         {

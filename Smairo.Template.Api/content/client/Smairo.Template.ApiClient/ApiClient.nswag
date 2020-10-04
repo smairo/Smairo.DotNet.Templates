@@ -1,11 +1,12 @@
-﻿{
+{
   "runtime": "NetCore30",
   "defaultVariables": null,
   "documentGenerator": {
     "fromDocument": {
-      "json": "{\r\n  \"openapi\": \"3.0.1\",\r\n  \"info\": {\r\n    \"title\": \"Smairo.Template.Api\",\r\n    \"description\": \"A simple example ASP.NET Core Web API\",\r\n    \"termsOfService\": \"https://example.com/terms\",\r\n    \"contact\": {\r\n      \"name\": \"Example person\",\r\n      \"url\": \"https://twitter.com/...\",\r\n      \"email\": \"\"\r\n    },\r\n    \"license\": {\r\n      \"name\": \"Use under LICX\",\r\n      \"url\": \"https://example.com/license\"\r\n    },\r\n    \"version\": \"v1\"\r\n  },\r\n  \"paths\": {\r\n    \"/v1/WeatherForecast\": {\r\n      \"get\": {\r\n        \"tags\": [\r\n          \"WeatherForecast\"\r\n        ],\r\n        \"summary\": \"Get weather\",\r\n        \"responses\": {\r\n          \"200\": {\r\n            \"description\": \"Returns IEnumerable of Smairo.Template.Api.WeatherForecast\",\r\n            \"content\": {\r\n              \"application/json\": {\r\n                \"schema\": {\r\n                  \"type\": \"array\",\r\n                  \"items\": {\r\n                    \"$ref\": \"#/components/schemas/WeatherForecast\"\r\n                  }\r\n                }\r\n              }\r\n            }\r\n          },\r\n          \"401\": {\r\n            \"description\": \"Unauthorized\"\r\n          },\r\n          \"403\": {\r\n            \"description\": \"Forbidden (you are not allowed to access this resource)\"\r\n          },\r\n          \"429\": {\r\n            \"description\": \"Too many requests\"\r\n          },\r\n          \"500\": {\r\n            \"description\": \"Unknown server error occured\"\r\n          }\r\n        }\r\n      }\r\n    }\r\n  },\r\n  \"components\": {\r\n    \"schemas\": {\r\n      \"WeatherForecast\": {\r\n        \"type\": \"object\",\r\n        \"properties\": {\r\n          \"date\": {\r\n            \"type\": \"string\",\r\n            \"format\": \"date-time\"\r\n          },\r\n          \"temperatureC\": {\r\n            \"type\": \"integer\",\r\n            \"format\": \"int32\"\r\n          },\r\n          \"temperatureF\": {\r\n            \"type\": \"integer\",\r\n            \"format\": \"int32\",\r\n            \"readOnly\": true\r\n          },\r\n          \"summary\": {\r\n            \"type\": \"string\",\r\n            \"nullable\": true\r\n          }\r\n        },\r\n        \"additionalProperties\": false\r\n      }\r\n    }\r\n  }\r\n}",
+      "json": "{\r\n  \"openapi\": \"3.0.1\",\r\n  \"info\": {\r\n    \"title\": \"Smairo.Template.Api\",\r\n    \"description\": \"A simple example ASP.NET Core Web API\",\r\n    \"termsOfService\": \"https://example.com/terms\",\r\n    \"contact\": {\r\n      \"name\": \"Example person\",\r\n      \"url\": \"https://twitter.com/...\",\r\n      \"email\": \"\"\r\n    },\r\n    \"license\": {\r\n      \"name\": \"Use under LICX\",\r\n      \"url\": \"https://example.com/license\"\r\n    },\r\n    \"version\": \"v1\"\r\n  },\r\n  \"paths\": {\r\n    \"/v1/WeatherForecast\": {\r\n      \"get\": {\r\n        \"tags\": [\r\n          \"WeatherForecast\"\r\n        ],\r\n        \"summary\": \"Get weather\",\r\n        \"responses\": {\r\n          \"500\": {\r\n            \"description\": \"Server Error\"\r\n          },\r\n          \"200\": {\r\n            \"description\": \"Returns IEnumerable of Smairo.Template.Api.WeatherForecast\",\r\n            \"content\": {\r\n              \"application/json\": {\r\n                \"schema\": {\r\n                  \"type\": \"array\",\r\n                  \"items\": {\r\n                    \"$ref\": \"#/components/schemas/WeatherForecast\"\r\n                  }\r\n                }\r\n              }\r\n            }\r\n          }\r\n        }\r\n      },\r\n      \"post\": {\r\n        \"tags\": [\r\n          \"WeatherForecast\"\r\n        ],\r\n        \"summary\": \"Search weather\",\r\n        \"parameters\": [\r\n          {\r\n            \"name\": \"type\",\r\n            \"in\": \"path\",\r\n            \"required\": true,\r\n            \"schema\": {\r\n              \"allOf\": [\r\n                {\r\n                  \"$ref\": \"#/components/schemas/WeatherType\"\r\n                }\r\n              ]\r\n            }\r\n          }\r\n        ],\r\n        \"responses\": {\r\n          \"500\": {\r\n            \"description\": \"Server Error\"\r\n          },\r\n          \"200\": {\r\n            \"description\": \"Returns IEnumerable of Smairo.Template.Api.WeatherForecast\",\r\n            \"content\": {\r\n              \"application/json\": {\r\n                \"schema\": {\r\n                  \"type\": \"array\",\r\n                  \"items\": {\r\n                    \"$ref\": \"#/components/schemas/WeatherForecast\"\r\n                  }\r\n                }\r\n              }\r\n            }\r\n          }\r\n        }\r\n      }\r\n    }\r\n  },\r\n  \"components\": {\r\n    \"schemas\": {\r\n      \"WeatherType\": {\r\n        \"enum\": [\r\n          \"Stormy\"\r\n        ],\r\n        \"type\": \"string\",\r\n        \"additionalProperties\": false\r\n      },\r\n      \"WeatherForecast\": {\r\n        \"type\": \"object\",\r\n        \"properties\": {\r\n          \"date\": {\r\n            \"type\": \"string\",\r\n            \"format\": \"date-time\"\r\n          },\r\n          \"temperatureC\": {\r\n            \"type\": \"integer\",\r\n            \"format\": \"int32\"\r\n          },\r\n          \"temperatureF\": {\r\n            \"type\": \"integer\",\r\n            \"format\": \"int32\",\r\n            \"readOnly\": true\r\n          },\r\n          \"summary\": {\r\n            \"type\": \"string\",\r\n            \"nullable\": true\r\n          },\r\n          \"weatherType\": {\r\n            \"allOf\": [\r\n              {\r\n                \"$ref\": \"#/components/schemas/WeatherType\"\r\n              }\r\n            ],\r\n            \"readOnly\": true\r\n          }\r\n        },\r\n        \"additionalProperties\": false\r\n      }\r\n    },\r\n    \"securitySchemes\": {\r\n      \"Bearer\": {\r\n        \"type\": \"apiKey\",\r\n        \"description\": \"JWT Authorization header using the Bearer scheme.\",\r\n        \"name\": \"Authorization\",\r\n        \"in\": \"header\"\r\n      }\r\n    }\r\n  },\r\n  \"security\": [\r\n    {\r\n      \"Bearer\": []\r\n    }\r\n  ]\r\n}",
       "url": "https://localhost:5001/swagger/v1/swagger.json",
-      "output": null
+      "output": null,
+      "newLineBehavior": "Auto"
     }
   },
   "codeGenerators": {
@@ -14,6 +15,7 @@
       "configurationClass": null,
       "generateClientClasses": true,
       "generateClientInterfaces": true,
+      "clientBaseInterface": null,
       "injectHttpClient": true,
       "disposeHttpClient": true,
       "protectedMethods": [],
@@ -35,6 +37,7 @@
       "parameterDateTimeFormat": "s",
       "parameterDateFormat": "yyyy-MM-dd",
       "generateUpdateJsonSerializerSettingsMethod": true,
+      "useRequestAndResponseSerializationSettings": false,
       "serializeTypeInformation": false,
       "queryNullValue": "",
       "className": "{controller}Client",
@@ -81,6 +84,7 @@
       "inlineNamedAny": false,
       "generateDtoTypes": true,
       "generateOptionalPropertiesAsNullable": false,
+      "generateNullableReferenceTypes": false,
       "templateDirectory": null,
       "typeNameGeneratorType": null,
       "propertyNameGeneratorType": null,
@@ -89,7 +93,8 @@
       "serviceSchemes": [
         "https"
       ],
-      "output": null
+      "output": null,
+      "newLineBehavior": "Auto"
     }
   }
 }

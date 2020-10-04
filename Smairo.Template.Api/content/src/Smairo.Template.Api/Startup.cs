@@ -5,173 +5,95 @@ using IdentityServer4.AccessTokenValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Smairo.AspNetHosting;
 using Smairo.Template.Api.Filters;
 using Smairo.Template.Model.Extensions;
-
 namespace Smairo.Template.Api
 {
-    public class Startup
+    public class Startup : ApiStartup
     {
-        public IConfiguration Configuration { get; }
-        public IWebHostEnvironment Environment { get; }
-
         public Startup(IConfiguration configuration, IWebHostEnvironment environment)
+            : base(configuration, environment)
         {
-            Configuration = configuration;
-            Environment = environment;
         }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
-            // In case you need to access http requests (eg find username etc)
-            services.AddHttpContextAccessor();
-            services.AddModelDependencies(Configuration, Environment.IsProduction());
-
-            services.AddLogging();
-
-            AddSwagger(services);
-            AddGlobalMvcFilters(services);
-            AddAuthentication(services);
-        }
-
-        private void AddAuthentication(IServiceCollection services)
-        {
-            if (!Configuration.GetValue<bool>("Authentication:UseAuthentication"))
-            {
-                return;
-            }
-
-            services
-                .AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
-                .AddIdentityServerAuthentication(opt =>
-                {
-                    opt.Authority = Configuration["Authentication:Authority"];
-                    opt.RequireHttpsMetadata = true;
-                });
-
-            services.AddAuthorization();
-        }
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app)
-        {
-            app.UseRouting();
-            if (Environment.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
-            app.UseStaticFiles();
-            app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
-                c.RoutePrefix = string.Empty;
-                c.InjectStylesheet("css/swagger-themes/dark.min.css");
-            });
-
-            app.UseHttpsRedirection();
-            if (Configuration.GetValue<bool>("Authentication:UseAuthentication"))
-            {
-                app.UseAuthorization();
-            }
-            
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
-        }
-
-        private void AddSwagger(IServiceCollection services)
-        {
-            // Register the Swagger generator, defining 1 or more Swagger documents
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo
-                {
-                    Version = "v1",
-                    Title = "Smairo.Template.Api",
-                    Description = "A simple example ASP.NET Core Web API",
-                    TermsOfService = new Uri("https://example.com/terms"),
-                    Contact = new OpenApiContact
-                    {
-                        Name = "Example person",
-                        Email = string.Empty,
-                        Url = new Uri("https://twitter.com/..."),
-                    },
-                    License = new OpenApiLicense
-                    {
-                        Name = "Use under LICX",
-                        Url = new Uri("https://example.com/license"),
-                    }
-                });
-
-                if (Configuration.GetValue<bool>("Authentication:UseAuthentication"))
-                {
-                    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-                    {
-                        Name = "Authorization",
-                        Type = SecuritySchemeType.ApiKey,
-                        Scheme = "Bearer",
-                        BearerFormat = "JWT",
-                        In = ParameterLocation.Header,
-                        Description = "JWT Authorization header using the Bearer scheme."
-                    }); 
-                    c.AddSecurityRequirement(new OpenApiSecurityRequirement
-                    {
-                        {
-                            new OpenApiSecurityScheme
-                            {
-                                Reference = new OpenApiReference 
-                                { 
-                                    Type = ReferenceType.SecurityScheme, 
-                                    Id = "Bearer"
-                                }
-                            },
-                            new string[] {}
-                        }
-                    });
-                }
-
-                // Set the comments path for the Swagger JSON and UI.
-                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                c.IncludeXmlComments(xmlPath);
-
-                c.DescribeAllParametersInCamelCase();
-                c.IgnoreObsoleteActions();
-                c.OperationFilter<SwaggerOperationFilter>();
-            });
-        }
-
-        private void AddGlobalMvcFilters(IServiceCollection services)
+        public override void AddBuiltInServices(IServiceCollection services)
         {
             // Adds [Authorize] to all endpoints
             var authorizationPolicy = new AuthorizationPolicyBuilder()
                 .RequireAuthenticatedUser()
                 .Build();
 
-            // Add json
-            var producesJson = new ProducesAttribute("application/json");
-            var consumesJson = new ConsumesAttribute("application/json");
-
-            services
-                .AddControllers(options => {
-                if (Configuration.GetValue<bool>("Authentication:UseAuthentication"))
-                {
-                    options.Filters.Add(new AuthorizeFilter(authorizationPolicy));
-                }
-                options.Filters.Add(producesJson);
-                options.Filters.Add(consumesJson);
-                options.Filters.Add(new GeneralExceptionFilter());
+            services.AddControllers(opt =>
+            {
+                //opt.Filters.Add(new AuthorizeFilter(authorizationPolicy));
+                opt.Filters.Add(new GeneralExceptionFilter());
             });
+
+            base.AddBuiltInServices(services);
         }
+
+        public override void AddAndConfigureOptions(IServiceCollection services)
+        {
+        }
+
+        public override void AddAuthenticationAndAuthorization(IServiceCollection services)
+        {
+            //services
+            //    .AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
+            //    .AddIdentityServerAuthentication(opt =>
+            //    {
+            //        opt.Authority = Configuration["Authentication:Authority"];
+            //        opt.RequireHttpsMetadata = true;
+            //    });
+
+            //services.AddAuthorization(opt =>
+            //{
+            //    opt.AddPolicy("MyPolicy",
+            //        policy =>
+            //        {
+            //            policy.RequireClaim("sub");
+            //        });
+            //});
+        }
+
+        public override void AddDatabase(IServiceCollection services)
+        {
+            services.AddModelDependencies(Configuration, Environment.IsProduction());
+        }
+
+        public override void AddOurServices(IServiceCollection services)
+        {
+            services.AddLogging();
+
+        }
+
+        public override OpenApiInfo ApiInfo => new OpenApiInfo
+        {
+            Version = "v1",
+            Title = "Smairo.Template.Api",
+            Description = "A simple example ASP.NET Core Web API",
+            TermsOfService = new Uri("https://example.com/terms"),
+            Contact = new OpenApiContact
+            {
+                Name = "Example person",
+                Email = string.Empty,
+                Url = new Uri("https://twitter.com/..."),
+            },
+            License = new OpenApiLicense
+            {
+                Name = "Use under LICX",
+                Url = new Uri("https://example.com/license"),
+            }
+        };
+
+        public override string ApiDocumentationXmlPath => Path.Combine(
+            AppContext.BaseDirectory,
+            $"{Assembly.GetExecutingAssembly().GetName().Name}.xml");
     }
 }

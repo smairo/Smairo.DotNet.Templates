@@ -30,7 +30,6 @@ namespace Smairo.Template.Api
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             new HostBuilder()
                 .CreateExtendedBuilderWithSerilog<Startup>(args)
-                .ConfigureWebHostDefaults(configure => { configure.UseStartup<Startup>(); })
                 .UseSerilog();
     }
 }
