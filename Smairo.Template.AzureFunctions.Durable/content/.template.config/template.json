@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Miro Holopainen",
+  "classifications": [ "Dependency Injection", "Azure", "Azure Functions", "Azure Durable Functions" ],
+  "preferNameDirectory": true,
+  "identity": "Smairo.Template.AzureFunctions.Durable",
+  "name": "Azure functions durable function (DI)",
+  "shortName": "smairo-function-durable",
+  "sourceName": "Smairo.Template.AzureFunctions.Durable",
+  "primaryOutputs": [
+    {
+      "path": "Smairo.Template.AzureFunctions.Durable/Smairo.Template.AzureFunctions.Durable.sln"
+    }
+  ],
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "symbols": {
+    "FunctionName": {
+      "type": "parameter",
+      "defaultValue": "DurableFunction",
+      "replaces": "Function1",
+	  "fileRename": "Function1"
+    }
+  }
+}
