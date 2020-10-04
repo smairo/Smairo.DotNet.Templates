@@ -41,7 +41,7 @@ dotnet new smairo-function-timer -n "NameForYourSolution" -F "NameForYourFunctio
 ```
 
 # Smairo.Template.AzureFunctions.Http
-Dependency injection azure function with v3 and timer trigger ready to go.
+Dependency injection azure function with v3 and timer http ready to go.
 
 You can install http function template from nuget:
 ```

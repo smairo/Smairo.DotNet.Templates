@@ -3,10 +3,10 @@
   "author": "Miro Holopainen",
   "classifications": [ "Dependency Injection", "Azure", "Azure Functions" ],
   "preferNameDirectory": true,
-  "identity": "Smairo.Template.AzureFunctions.Http",
+  "identity": "Smairo.Template.AzureFunction.Http",
   "name": "Azure functions http function (DI)",
   "shortName": "smairo-function-http",
-  "sourceName": "Smairo.Template.AzureFunctions.Http",
+  "sourceName": "Smairo.Template.AzureFunction.Http",
   "primaryOutputs": [
     {
       "path": "Smairo.Template.AzureFunctions.Http/Smairo.Template.AzureFunctions.Http.sln"
