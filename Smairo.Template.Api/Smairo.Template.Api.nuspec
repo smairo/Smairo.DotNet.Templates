@@ -3,7 +3,7 @@
     <metadata>
         <id>Smairo.Template.Api</id>
 		<title>Smairo Api Template</title>
-        <version>3.2.1</version>
+        <version>4.0.0</version>
         <description>Api with swagger (dark theme) and repository</description>
         <authors>Miro Holopainen</authors>
 		<owners>Miro Holopainen</owners>
